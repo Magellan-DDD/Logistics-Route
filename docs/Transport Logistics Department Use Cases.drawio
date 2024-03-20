@@ -1,0 +1,292 @@
+<mxfile host="app.diagrams.net" modified="2024-03-20T16:00:20.750Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36" etag="NB3K_YJb53v6gL7UYKSY" version="24.0.7" type="device">
+  <diagram name="Page-1" id="X-_V9CnlIz-k8EA4BL-w">
+    <mxGraphModel dx="1509" dy="1946" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="Gaue9f5ifTMLcd0W7s6c-3" value="&lt;b&gt;Transport Logistics Department Use Cases&lt;/b&gt;" style="rounded=0;whiteSpace=wrap;html=1;verticalAlign=top;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="1" vertex="1">
+          <mxGeometry x="200" y="-40" width="330" height="1440" as="geometry" />
+        </mxCell>
+        <mxCell id="Gaue9f5ifTMLcd0W7s6c-1" value="Dispatcher" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;fillColor=#ffe6cc;strokeColor=#d79b00;" parent="1" vertex="1">
+          <mxGeometry x="80" y="170" width="30" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="Gaue9f5ifTMLcd0W7s6c-8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;endArrow=none;endFill=0;" parent="1" source="Gaue9f5ifTMLcd0W7s6c-5" target="Gaue9f5ifTMLcd0W7s6c-7" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Gaue9f5ifTMLcd0W7s6c-9" value="place request" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="Gaue9f5ifTMLcd0W7s6c-8" vertex="1" connectable="0">
+          <mxGeometry x="-0.1314" y="3" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Gaue9f5ifTMLcd0W7s6c-5" value="Client&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;fillColor=#f5f5f5;strokeColor=#666666;fontColor=#333333;" parent="1" vertex="1">
+          <mxGeometry x="80" y="50" width="30" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="Gaue9f5ifTMLcd0W7s6c-7" value="Request delivery" style="ellipse;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" parent="1" vertex="1">
+          <mxGeometry x="294" y="40" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="Gaue9f5ifTMLcd0W7s6c-11" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.08;entryY=0.78;entryDx=0;entryDy=0;entryPerimeter=0;endArrow=none;endFill=0;" parent="1" source="Gaue9f5ifTMLcd0W7s6c-1" target="Gaue9f5ifTMLcd0W7s6c-7" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Gaue9f5ifTMLcd0W7s6c-12" value="process request" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="Gaue9f5ifTMLcd0W7s6c-11" vertex="1" connectable="0">
+          <mxGeometry x="-0.1897" y="2" relative="1" as="geometry">
+            <mxPoint x="1" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Ir2anl38_HF-TlZ3FZEm-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;" edge="1" parent="1" source="Gaue9f5ifTMLcd0W7s6c-13" target="Ir2anl38_HF-TlZ3FZEm-2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Ir2anl38_HF-TlZ3FZEm-4" value="&amp;lt;&amp;lt;include&amp;gt;&amp;gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];labelBackgroundColor=none;" vertex="1" connectable="0" parent="Ir2anl38_HF-TlZ3FZEm-3">
+          <mxGeometry x="-0.27" y="-2" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Gaue9f5ifTMLcd0W7s6c-13" value="Notify all availible drivers" style="ellipse;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" parent="1" vertex="1">
+          <mxGeometry x="294" y="160" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="Gaue9f5ifTMLcd0W7s6c-21" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="Gaue9f5ifTMLcd0W7s6c-17" target="Gaue9f5ifTMLcd0W7s6c-1" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Gaue9f5ifTMLcd0W7s6c-27" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;endArrow=none;endFill=0;" parent="1" source="Gaue9f5ifTMLcd0W7s6c-17" target="Gaue9f5ifTMLcd0W7s6c-26" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Gaue9f5ifTMLcd0W7s6c-31" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;endArrow=none;endFill=0;" parent="1" source="Gaue9f5ifTMLcd0W7s6c-17" target="Gaue9f5ifTMLcd0W7s6c-28" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Gaue9f5ifTMLcd0W7s6c-32" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;endArrow=none;endFill=0;" parent="1" source="Gaue9f5ifTMLcd0W7s6c-17" target="Gaue9f5ifTMLcd0W7s6c-29" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Gaue9f5ifTMLcd0W7s6c-33" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;endArrow=none;endFill=0;" parent="1" source="Gaue9f5ifTMLcd0W7s6c-17" target="Gaue9f5ifTMLcd0W7s6c-30" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Gaue9f5ifTMLcd0W7s6c-17" value="Administartor" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;fillColor=#ffe6cc;strokeColor=#d79b00;" parent="1" vertex="1">
+          <mxGeometry x="80" y="817.6" width="30" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="Gaue9f5ifTMLcd0W7s6c-22" value="Notification service" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;" parent="1" vertex="1">
+          <mxGeometry x="610" y="170" width="30" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="Gaue9f5ifTMLcd0W7s6c-24" value="Register dispatcher" style="ellipse;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" parent="1" vertex="1">
+          <mxGeometry x="294" y="640" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="Gaue9f5ifTMLcd0W7s6c-25" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=none;endFill=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="Gaue9f5ifTMLcd0W7s6c-17" target="Gaue9f5ifTMLcd0W7s6c-24" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="210" y="720" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Gaue9f5ifTMLcd0W7s6c-26" value="Register driver" style="ellipse;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" parent="1" vertex="1">
+          <mxGeometry x="294" y="737.6" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="Gaue9f5ifTMLcd0W7s6c-28" value="Add vehicle&amp;nbsp;" style="ellipse;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" parent="1" vertex="1">
+          <mxGeometry x="294" y="837.6" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="Gaue9f5ifTMLcd0W7s6c-29" value="Remove vehicle&amp;nbsp;" style="ellipse;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" parent="1" vertex="1">
+          <mxGeometry x="294" y="937.5999999999999" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="Gaue9f5ifTMLcd0W7s6c-30" value="Update vehicle status&amp;nbsp;" style="ellipse;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" parent="1" vertex="1">
+          <mxGeometry x="294" y="1037.6" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="Ir2anl38_HF-TlZ3FZEm-2" value="Create a new route" style="ellipse;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="294" y="290" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="Ir2anl38_HF-TlZ3FZEm-30" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;endArrow=none;endFill=0;" edge="1" parent="1" source="Ir2anl38_HF-TlZ3FZEm-5" target="Ir2anl38_HF-TlZ3FZEm-27">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Ir2anl38_HF-TlZ3FZEm-32" value="submit an application&lt;div&gt;and pass the vehicle info&lt;br&gt;&lt;/div&gt;" style="edgeLabel;html=1;align=center;verticalAlign=bottom;resizable=0;points=[];" vertex="1" connectable="0" parent="Ir2anl38_HF-TlZ3FZEm-30">
+          <mxGeometry x="-0.0032" y="1" relative="1" as="geometry">
+            <mxPoint x="-9" y="14" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Ir2anl38_HF-TlZ3FZEm-37" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;endArrow=none;endFill=0;" edge="1" parent="1" source="Ir2anl38_HF-TlZ3FZEm-5" target="Ir2anl38_HF-TlZ3FZEm-36">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Ir2anl38_HF-TlZ3FZEm-39" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;endArrow=none;endFill=0;" edge="1" parent="1" source="Ir2anl38_HF-TlZ3FZEm-5" target="Ir2anl38_HF-TlZ3FZEm-38">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Ir2anl38_HF-TlZ3FZEm-5" value="Driver" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;fillColor=#ffe6cc;strokeColor=#d79b00;" vertex="1" parent="1">
+          <mxGeometry x="80" y="1250" width="30" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="Ir2anl38_HF-TlZ3FZEm-19" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=none;endFill=0;verticalAlign=bottom;" edge="1" parent="1" target="Ir2anl38_HF-TlZ3FZEm-24" source="Gaue9f5ifTMLcd0W7s6c-1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="130" y="380" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Ir2anl38_HF-TlZ3FZEm-20" value="accept an application&amp;nbsp;" style="edgeLabel;html=1;align=center;verticalAlign=bottom;resizable=0;points=[];" vertex="1" connectable="0" parent="Ir2anl38_HF-TlZ3FZEm-19">
+          <mxGeometry x="-0.1092" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Ir2anl38_HF-TlZ3FZEm-21" value="&amp;nbsp; &amp;nbsp;and assign a vehicle" style="edgeLabel;html=1;align=center;verticalAlign=top;resizable=0;points=[];" vertex="1" connectable="0" parent="Ir2anl38_HF-TlZ3FZEm-19">
+          <mxGeometry x="-0.1932" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Ir2anl38_HF-TlZ3FZEm-27" value="&lt;span style=&quot;color: rgb(13, 13, 13); font-family: Söhne, ui-sans-serif, system-ui, -apple-system, &amp;quot;Segoe UI&amp;quot;, Roboto, Ubuntu, Cantarell, &amp;quot;Noto Sans&amp;quot;, sans-serif, &amp;quot;Helvetica Neue&amp;quot;, Arial, &amp;quot;Apple Color Emoji&amp;quot;, &amp;quot;Segoe UI Emoji&amp;quot;, &amp;quot;Segoe UI Symbol&amp;quot;, &amp;quot;Noto Color Emoji&amp;quot;; text-align: start; white-space-collapse: preserve;&quot;&gt;Submit an application for a route&lt;/span&gt;" style="ellipse;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;labelBackgroundColor=none;" vertex="1" parent="1">
+          <mxGeometry x="294" y="1160" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="Ir2anl38_HF-TlZ3FZEm-36" value="&lt;span style=&quot;color: rgb(13, 13, 13); font-family: Söhne, ui-sans-serif, system-ui, -apple-system, &amp;quot;Segoe UI&amp;quot;, Roboto, Ubuntu, Cantarell, &amp;quot;Noto Sans&amp;quot;, sans-serif, &amp;quot;Helvetica Neue&amp;quot;, Arial, &amp;quot;Apple Color Emoji&amp;quot;, &amp;quot;Segoe UI Emoji&amp;quot;, &amp;quot;Segoe UI Symbol&amp;quot;, &amp;quot;Noto Color Emoji&amp;quot;; text-align: start; white-space-collapse: preserve;&quot;&gt;Start the route&lt;/span&gt;" style="ellipse;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;labelBackgroundColor=none;" vertex="1" parent="1">
+          <mxGeometry x="294" y="1270" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="Ir2anl38_HF-TlZ3FZEm-38" value="&lt;span style=&quot;color: rgb(13, 13, 13); font-family: Söhne, ui-sans-serif, system-ui, -apple-system, &amp;quot;Segoe UI&amp;quot;, Roboto, Ubuntu, Cantarell, &amp;quot;Noto Sans&amp;quot;, sans-serif, &amp;quot;Helvetica Neue&amp;quot;, Arial, &amp;quot;Apple Color Emoji&amp;quot;, &amp;quot;Segoe UI Emoji&amp;quot;, &amp;quot;Segoe UI Symbol&amp;quot;, &amp;quot;Noto Color Emoji&amp;quot;; text-align: start; white-space-collapse: preserve;&quot;&gt;Complete the route&lt;/span&gt;" style="ellipse;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;labelBackgroundColor=none;" vertex="1" parent="1">
+          <mxGeometry x="294" y="1380" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="Ir2anl38_HF-TlZ3FZEm-24" value="&lt;span style=&quot;font-family: Söhne, ui-sans-serif, system-ui, -apple-system, &amp;quot;Segoe UI&amp;quot;, Roboto, Ubuntu, Cantarell, &amp;quot;Noto Sans&amp;quot;, sans-serif, &amp;quot;Helvetica Neue&amp;quot;, Arial, &amp;quot;Apple Color Emoji&amp;quot;, &amp;quot;Segoe UI Emoji&amp;quot;, &amp;quot;Segoe UI Symbol&amp;quot;, &amp;quot;Noto Color Emoji&amp;quot;; text-align: start; white-space-collapse: preserve;&quot;&gt;Accept an application for a route&lt;/span&gt;" style="ellipse;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;labelBackgroundColor=none;fontColor=default;" vertex="1" parent="1">
+          <mxGeometry x="294" y="410" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="Ir2anl38_HF-TlZ3FZEm-41" value="&lt;b&gt;Transport Logistics Department Use Cases&lt;/b&gt;" style="rounded=0;whiteSpace=wrap;html=1;verticalAlign=top;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="200" y="-40" width="330" height="1640" as="geometry" />
+        </mxCell>
+        <mxCell id="Ir2anl38_HF-TlZ3FZEm-84" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;endArrow=none;endFill=0;" edge="1" parent="1" source="Ir2anl38_HF-TlZ3FZEm-44" target="Ir2anl38_HF-TlZ3FZEm-68">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Ir2anl38_HF-TlZ3FZEm-44" value="Dispatcher" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;fillColor=#ffe6cc;strokeColor=#d79b00;" vertex="1" parent="1">
+          <mxGeometry x="80" y="170" width="30" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="Ir2anl38_HF-TlZ3FZEm-45" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;endArrow=none;endFill=0;" edge="1" parent="1" source="Ir2anl38_HF-TlZ3FZEm-47" target="Ir2anl38_HF-TlZ3FZEm-48">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Ir2anl38_HF-TlZ3FZEm-46" value="place request" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="Ir2anl38_HF-TlZ3FZEm-45">
+          <mxGeometry x="-0.1314" y="3" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Ir2anl38_HF-TlZ3FZEm-47" value="Client&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;fillColor=#f5f5f5;strokeColor=#666666;fontColor=#333333;" vertex="1" parent="1">
+          <mxGeometry x="80" y="50" width="30" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="Ir2anl38_HF-TlZ3FZEm-48" value="Request delivery" style="ellipse;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="294" y="40" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="Ir2anl38_HF-TlZ3FZEm-49" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.08;entryY=0.78;entryDx=0;entryDy=0;entryPerimeter=0;endArrow=none;endFill=0;" edge="1" parent="1" source="Ir2anl38_HF-TlZ3FZEm-44" target="Ir2anl38_HF-TlZ3FZEm-48">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Ir2anl38_HF-TlZ3FZEm-50" value="process request" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="Ir2anl38_HF-TlZ3FZEm-49">
+          <mxGeometry x="-0.1897" y="2" relative="1" as="geometry">
+            <mxPoint x="1" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Ir2anl38_HF-TlZ3FZEm-51" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=none;endFill=0;" edge="1" parent="1" source="Ir2anl38_HF-TlZ3FZEm-54" target="Ir2anl38_HF-TlZ3FZEm-61">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Ir2anl38_HF-TlZ3FZEm-54" value="Notify all availible drivers" style="ellipse;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="294" y="280" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="Ir2anl38_HF-TlZ3FZEm-55" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="Ir2anl38_HF-TlZ3FZEm-60" target="Ir2anl38_HF-TlZ3FZEm-44">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Ir2anl38_HF-TlZ3FZEm-56" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;endArrow=none;endFill=0;" edge="1" parent="1" source="Ir2anl38_HF-TlZ3FZEm-60" target="Ir2anl38_HF-TlZ3FZEm-64">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Ir2anl38_HF-TlZ3FZEm-57" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;endArrow=none;endFill=0;" edge="1" parent="1" source="Ir2anl38_HF-TlZ3FZEm-60" target="Ir2anl38_HF-TlZ3FZEm-65">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Ir2anl38_HF-TlZ3FZEm-58" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;endArrow=none;endFill=0;" edge="1" parent="1" source="Ir2anl38_HF-TlZ3FZEm-60" target="Ir2anl38_HF-TlZ3FZEm-66">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Ir2anl38_HF-TlZ3FZEm-59" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;endArrow=none;endFill=0;" edge="1" parent="1" source="Ir2anl38_HF-TlZ3FZEm-60" target="Ir2anl38_HF-TlZ3FZEm-67">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Ir2anl38_HF-TlZ3FZEm-60" value="Administartor" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;fillColor=#ffe6cc;strokeColor=#d79b00;" vertex="1" parent="1">
+          <mxGeometry x="80" y="817.6" width="30" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="Ir2anl38_HF-TlZ3FZEm-61" value="Notification service" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;" vertex="1" parent="1">
+          <mxGeometry x="610" y="170" width="30" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="Ir2anl38_HF-TlZ3FZEm-62" value="Register dispatcher" style="ellipse;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="294" y="640" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="Ir2anl38_HF-TlZ3FZEm-63" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=none;endFill=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="Ir2anl38_HF-TlZ3FZEm-60" target="Ir2anl38_HF-TlZ3FZEm-62">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="210" y="720" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Ir2anl38_HF-TlZ3FZEm-64" value="Register driver" style="ellipse;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="294" y="737.6" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="Ir2anl38_HF-TlZ3FZEm-65" value="Add vehicle&amp;nbsp;" style="ellipse;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="294" y="837.6" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="Ir2anl38_HF-TlZ3FZEm-66" value="Remove vehicle&amp;nbsp;" style="ellipse;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="294" y="937.5999999999999" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="Ir2anl38_HF-TlZ3FZEm-67" value="Update vehicle status&amp;nbsp;" style="ellipse;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="294" y="1037.6" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="Ir2anl38_HF-TlZ3FZEm-85" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;dashed=1;" edge="1" parent="1" source="Ir2anl38_HF-TlZ3FZEm-68" target="Ir2anl38_HF-TlZ3FZEm-54">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Ir2anl38_HF-TlZ3FZEm-86" value="&amp;lt;&amp;lt;include&amp;gt;&amp;gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="Ir2anl38_HF-TlZ3FZEm-85">
+          <mxGeometry x="-0.3737" y="-1" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Ir2anl38_HF-TlZ3FZEm-68" value="Create a new route" style="ellipse;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="294" y="160" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="Ir2anl38_HF-TlZ3FZEm-69" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;endArrow=none;endFill=0;" edge="1" parent="1" source="Ir2anl38_HF-TlZ3FZEm-73" target="Ir2anl38_HF-TlZ3FZEm-77">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Ir2anl38_HF-TlZ3FZEm-70" value="submit an application&lt;div&gt;and pass the vehicle info&lt;br&gt;&lt;/div&gt;" style="edgeLabel;html=1;align=center;verticalAlign=bottom;resizable=0;points=[];" vertex="1" connectable="0" parent="Ir2anl38_HF-TlZ3FZEm-69">
+          <mxGeometry x="-0.0032" y="1" relative="1" as="geometry">
+            <mxPoint x="-9" y="14" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Ir2anl38_HF-TlZ3FZEm-71" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;endArrow=none;endFill=0;" edge="1" parent="1" source="Ir2anl38_HF-TlZ3FZEm-73" target="Ir2anl38_HF-TlZ3FZEm-78">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Ir2anl38_HF-TlZ3FZEm-72" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;endArrow=none;endFill=0;" edge="1" parent="1" source="Ir2anl38_HF-TlZ3FZEm-73" target="Ir2anl38_HF-TlZ3FZEm-79">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Ir2anl38_HF-TlZ3FZEm-73" value="Driver" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;fillColor=#ffe6cc;strokeColor=#d79b00;" vertex="1" parent="1">
+          <mxGeometry x="80" y="1250" width="30" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="Ir2anl38_HF-TlZ3FZEm-74" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=none;endFill=0;verticalAlign=bottom;" edge="1" parent="1" source="Ir2anl38_HF-TlZ3FZEm-44" target="Ir2anl38_HF-TlZ3FZEm-80">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="130" y="380" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Ir2anl38_HF-TlZ3FZEm-75" value="accept an application&amp;nbsp;" style="edgeLabel;html=1;align=center;verticalAlign=bottom;resizable=0;points=[];" vertex="1" connectable="0" parent="Ir2anl38_HF-TlZ3FZEm-74">
+          <mxGeometry x="-0.1092" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Ir2anl38_HF-TlZ3FZEm-76" value="&amp;nbsp; &amp;nbsp;and assign a vehicle" style="edgeLabel;html=1;align=center;verticalAlign=top;resizable=0;points=[];" vertex="1" connectable="0" parent="Ir2anl38_HF-TlZ3FZEm-74">
+          <mxGeometry x="-0.1932" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Ir2anl38_HF-TlZ3FZEm-77" value="&lt;span style=&quot;color: rgb(13, 13, 13); font-family: Söhne, ui-sans-serif, system-ui, -apple-system, &amp;quot;Segoe UI&amp;quot;, Roboto, Ubuntu, Cantarell, &amp;quot;Noto Sans&amp;quot;, sans-serif, &amp;quot;Helvetica Neue&amp;quot;, Arial, &amp;quot;Apple Color Emoji&amp;quot;, &amp;quot;Segoe UI Emoji&amp;quot;, &amp;quot;Segoe UI Symbol&amp;quot;, &amp;quot;Noto Color Emoji&amp;quot;; text-align: start; white-space-collapse: preserve;&quot;&gt;Submit an application for a route&lt;/span&gt;" style="ellipse;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;labelBackgroundColor=none;" vertex="1" parent="1">
+          <mxGeometry x="294" y="1160" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="Ir2anl38_HF-TlZ3FZEm-78" value="&lt;span style=&quot;color: rgb(13, 13, 13); font-family: Söhne, ui-sans-serif, system-ui, -apple-system, &amp;quot;Segoe UI&amp;quot;, Roboto, Ubuntu, Cantarell, &amp;quot;Noto Sans&amp;quot;, sans-serif, &amp;quot;Helvetica Neue&amp;quot;, Arial, &amp;quot;Apple Color Emoji&amp;quot;, &amp;quot;Segoe UI Emoji&amp;quot;, &amp;quot;Segoe UI Symbol&amp;quot;, &amp;quot;Noto Color Emoji&amp;quot;; text-align: start; white-space-collapse: preserve;&quot;&gt;Start the route&lt;/span&gt;" style="ellipse;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;labelBackgroundColor=none;" vertex="1" parent="1">
+          <mxGeometry x="294" y="1270" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="Ir2anl38_HF-TlZ3FZEm-82" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;dashed=1;" edge="1" parent="1" source="Ir2anl38_HF-TlZ3FZEm-79" target="Ir2anl38_HF-TlZ3FZEm-81">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Ir2anl38_HF-TlZ3FZEm-83" value="&amp;lt;&amp;lt;include&amp;gt;&amp;gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="Ir2anl38_HF-TlZ3FZEm-82">
+          <mxGeometry x="-0.3211" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Ir2anl38_HF-TlZ3FZEm-79" value="&lt;span style=&quot;color: rgb(13, 13, 13); font-family: Söhne, ui-sans-serif, system-ui, -apple-system, &amp;quot;Segoe UI&amp;quot;, Roboto, Ubuntu, Cantarell, &amp;quot;Noto Sans&amp;quot;, sans-serif, &amp;quot;Helvetica Neue&amp;quot;, Arial, &amp;quot;Apple Color Emoji&amp;quot;, &amp;quot;Segoe UI Emoji&amp;quot;, &amp;quot;Segoe UI Symbol&amp;quot;, &amp;quot;Noto Color Emoji&amp;quot;; text-align: start; white-space-collapse: preserve;&quot;&gt;Complete the route&lt;/span&gt;" style="ellipse;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;labelBackgroundColor=none;" vertex="1" parent="1">
+          <mxGeometry x="294" y="1380" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="Ir2anl38_HF-TlZ3FZEm-89" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=classic;endFill=1;dashed=1;" edge="1" parent="1" source="Ir2anl38_HF-TlZ3FZEm-80" target="Ir2anl38_HF-TlZ3FZEm-87">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Ir2anl38_HF-TlZ3FZEm-90" value="&amp;lt;&amp;lt;include&amp;gt;&amp;gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="Ir2anl38_HF-TlZ3FZEm-89">
+          <mxGeometry x="-0.2609" y="1" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Ir2anl38_HF-TlZ3FZEm-80" value="&lt;span style=&quot;font-family: Söhne, ui-sans-serif, system-ui, -apple-system, &amp;quot;Segoe UI&amp;quot;, Roboto, Ubuntu, Cantarell, &amp;quot;Noto Sans&amp;quot;, sans-serif, &amp;quot;Helvetica Neue&amp;quot;, Arial, &amp;quot;Apple Color Emoji&amp;quot;, &amp;quot;Segoe UI Emoji&amp;quot;, &amp;quot;Segoe UI Symbol&amp;quot;, &amp;quot;Noto Color Emoji&amp;quot;; text-align: start; white-space-collapse: preserve;&quot;&gt;Accept an application for a route&lt;/span&gt;" style="ellipse;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;labelBackgroundColor=none;fontColor=default;" vertex="1" parent="1">
+          <mxGeometry x="294" y="410" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="Ir2anl38_HF-TlZ3FZEm-81" value="&lt;span style=&quot;color: rgb(13, 13, 13); font-family: Söhne, ui-sans-serif, system-ui, -apple-system, &amp;quot;Segoe UI&amp;quot;, Roboto, Ubuntu, Cantarell, &amp;quot;Noto Sans&amp;quot;, sans-serif, &amp;quot;Helvetica Neue&amp;quot;, Arial, &amp;quot;Apple Color Emoji&amp;quot;, &amp;quot;Segoe UI Emoji&amp;quot;, &amp;quot;Segoe UI Symbol&amp;quot;, &amp;quot;Noto Color Emoji&amp;quot;; text-align: start; white-space-collapse: preserve;&quot;&gt;Generate report&lt;/span&gt;" style="ellipse;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;labelBackgroundColor=none;" vertex="1" parent="1">
+          <mxGeometry x="294" y="1500" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="Ir2anl38_HF-TlZ3FZEm-87" value="assign the vehicle to the application&amp;nbsp;" style="ellipse;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="294" y="540" width="120" height="80" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
