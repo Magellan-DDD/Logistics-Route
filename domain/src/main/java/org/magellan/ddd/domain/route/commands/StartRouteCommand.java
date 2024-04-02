@@ -9,7 +9,7 @@ public record StartRouteCommand(
     @TargetAggregateIdentifier
     RouteId routeId,
     @NotNull
-    Instant departureDate) {
+    Instant startedDate) {
 
   public StartRouteCommand(RouteId routeId) {
     this(routeId, Instant.now());

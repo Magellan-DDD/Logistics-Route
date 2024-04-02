@@ -10,6 +10,7 @@ import java.util.HashMap;
 import java.util.Map;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import org.axonframework.commandhandling.CommandHandler;
 import org.axonframework.eventsourcing.EventSourcingHandler;
 import org.axonframework.modelling.command.AggregateIdentifier;
@@ -34,6 +35,7 @@ import org.magellan.ddd.domain.vehicle.VehicleId;
 @Aggregate
 @Getter
 @EqualsAndHashCode(of = "id")
+@NoArgsConstructor
 public class Route {
 
   @AggregateIdentifier
@@ -42,11 +44,10 @@ public class Route {
   private UserId dispatcherId;
   private VehicleId vehicleId;
   private Address address;
+  private Schedule schedule;
 
-  // todo move to schedule VO
-  private Instant departureDate;
-  private Instant arrivalDate;
   private Instant startedDate;
+  private Instant actualArrivalDate;
 
   private RouteStatus status;
 
@@ -64,6 +65,7 @@ public class Route {
     this.dispatcherId = event.dispatcherId();
     this.address = event.address();
     this.status = event.status();
+    this.schedule = event.schedule();
     this.applications = new HashMap<>();
   }
 
@@ -96,7 +98,8 @@ public class Route {
   @CommandHandler
   public void handle(AcceptApplicationCommand command) {
     if (this.applications.containsKey(command.applicationId())) {
-      AggregateLifecycle.apply(ApplicationAcceptedEvent.of(command));
+      UserId driverId = applications.get(command.applicationId()).getDriverId();
+      AggregateLifecycle.apply(ApplicationAcceptedEvent.of(command, driverId));
     } else {
       throw new RuntimeException("Required application %s is missing".formatted(command.applicationId()));
     }
@@ -105,7 +108,7 @@ public class Route {
   @EventSourcingHandler
   public void on(ApplicationAcceptedEvent event) {
     this.vehicleId = event.vehicleId();
-    this.driverId = applications.get(event.applicationId()).getDriverId();
+    this.driverId = event.driverId();
     this.applications.values().stream()
         .filter(not(app -> app.getId().equals(event.applicationId())))
         .forEach(Application::reject);
@@ -122,8 +125,7 @@ public class Route {
   @EventSourcingHandler
   public void on(RouteStartedEvent event) {
     this.status = STARTED;
-    // todo replace to startedDate
-    this.departureDate = event.departureDate();
+    this.startedDate = event.startedDate();
   }
 
   @CommandHandler
@@ -137,7 +139,7 @@ public class Route {
   @EventSourcingHandler
   public void on(RouteCompletedEvent event) {
     this.status = COMPLETED;
-    this.arrivalDate = event.arrivalDate();
+    this.actualArrivalDate = event.actualArrivalDate();
   }
 
 }

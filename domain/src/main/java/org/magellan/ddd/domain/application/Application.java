@@ -14,7 +14,6 @@ import org.axonframework.modelling.command.EntityId;
 import org.magellan.ddd.domain.application.commands.AcceptApplicationCommand;
 import org.magellan.ddd.domain.application.events.ApplicationAcceptedEvent;
 import org.magellan.ddd.domain.user.UserId;
-import org.magellan.ddd.domain.vehicle.VehicleId;
 import org.magellan.ddd.domain.vehicle.VehicleTypeId;
 
 @Slf4j
@@ -27,7 +26,6 @@ public class Application {
   private ApplicationId id;
   private UserId driverId;
   private VehicleTypeId requiredVehicleTypeId;
-  private VehicleId vehicleId;
   private ApplicationStatus status;
   private Instant createdDate;
 
@@ -40,14 +38,12 @@ public class Application {
     if (this.status == ApplicationStatus.ACCEPTED) {
       log.warn("Application {} is already accepted", this.id);
     } else {
-      AggregateLifecycle.apply(ApplicationAcceptedEvent.of(command));
+      AggregateLifecycle.apply(ApplicationAcceptedEvent.of(command, this.driverId));
     }
   }
 
   @EventSourcingHandler
   public void on(ApplicationAcceptedEvent event) {
-    // todo remove vehicle
-    this.vehicleId = event.vehicleId();
     this.status = event.status();
   }
 

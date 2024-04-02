@@ -9,7 +9,7 @@ public record CompleteRouteCommand(
     @TargetAggregateIdentifier
     RouteId routeId,
     @NotNull
-    Instant arrivalDate) {
+    Instant actualArrivalDate) {
 
   public CompleteRouteCommand(RouteId routeId) {
     this(routeId, Instant.now());
