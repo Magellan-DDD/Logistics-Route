@@ -9,18 +9,18 @@ import static org.magellan.ddd.domain.route.RouteStatus.STARTED;
 import java.time.Instant;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Optional;
 import lombok.EqualsAndHashCode;
-import lombok.Getter;
 import lombok.NoArgsConstructor;
 import org.axonframework.commandhandling.CommandHandler;
 import org.axonframework.eventsourcing.EventSourcingHandler;
+import org.axonframework.modelling.command.AggregateEntityNotFoundException;
 import org.axonframework.modelling.command.AggregateIdentifier;
 import org.axonframework.modelling.command.AggregateLifecycle;
 import org.axonframework.modelling.command.AggregateMember;
 import org.axonframework.spring.stereotype.Aggregate;
 import org.magellan.ddd.domain.application.Application;
 import org.magellan.ddd.domain.application.ApplicationId;
-import org.magellan.ddd.domain.application.ApplicationStatus;
 import org.magellan.ddd.domain.application.commands.AcceptApplicationCommand;
 import org.magellan.ddd.domain.application.commands.SubmitApplicationCommand;
 import org.magellan.ddd.domain.application.events.ApplicationAcceptedEvent;
@@ -31,12 +31,10 @@ import org.magellan.ddd.domain.route.commands.StartRouteCommand;
 import org.magellan.ddd.domain.route.events.RouteCompletedEvent;
 import org.magellan.ddd.domain.route.events.RouteCreatedEvent;
 import org.magellan.ddd.domain.route.events.RouteStartedEvent;
-import org.magellan.ddd.domain.route.repositories.RouteRepository;
 import org.magellan.ddd.domain.user.UserId;
 import org.magellan.ddd.domain.vehicle.VehicleId;
 
 @Aggregate
-@Getter
 @EqualsAndHashCode(of = "id")
 @NoArgsConstructor(access = PROTECTED)
 public class Route {
@@ -57,11 +55,8 @@ public class Route {
   @AggregateMember
   private Map<ApplicationId, Application> applications;
 
-  private RouteRepository repository;
-
   @CommandHandler
-  public Route(CreateRouteCommand command, RouteRepository repository) {
-    this.repository = repository;
+  public Route(CreateRouteCommand command) {
     AggregateLifecycle.apply(RouteCreatedEvent.of(command));
   }
 
@@ -100,11 +95,9 @@ public class Route {
         .build());
   }
 
-  @CommandHandler
   public void handle(AcceptApplicationCommand command) {
-    Application application = applications.get(command.applicationId());
+    Application application = getApplication(command.applicationId());
     UserId acceptedDriver = application.getDriverId();
-    verifyDriverAvailability(acceptedDriver);
     application.handle(command);
     AggregateLifecycle.apply(ApplicationAcceptedEvent.of(command, acceptedDriver));
   }
@@ -146,10 +139,14 @@ public class Route {
     this.actualArrivalDate = event.actualArrivalDate();
   }
 
-  private void verifyDriverAvailability(UserId driverId) {
-    if (!repository.isDriverAvailable(driverId.value())) {
-      throw new RuntimeException("Driver %s has been already assigned to another route");
-    }
+  public UserId getApplicationDriverId(ApplicationId applicationId) {
+    return getApplication(applicationId).getDriverId();
+  }
+
+  private Application getApplication(ApplicationId applicationId) {
+    return Optional.ofNullable(this.applications.get(applicationId))
+        .orElseThrow(() -> new AggregateEntityNotFoundException("Application %s is missing in the route %s"
+            .formatted(applicationId, this.id)));
   }
 
 }

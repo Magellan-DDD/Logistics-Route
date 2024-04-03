@@ -9,4 +9,9 @@ public record ApplicationId(String value) implements Identifiable<String> {
     return new ApplicationId(UUID.randomUUID().toString());
   }
 
+  @Override
+  public String toString() {
+    return value();
+  }
+
 }

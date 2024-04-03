@@ -9,4 +9,9 @@ public record RouteId(String value) implements Identifiable<String> {
     return new RouteId(UUID.randomUUID().toString());
   }
 
+  @Override
+  public String toString() {
+    return value();
+  }
+
 }

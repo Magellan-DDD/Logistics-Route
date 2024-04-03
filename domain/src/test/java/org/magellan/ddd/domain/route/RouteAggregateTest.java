@@ -7,12 +7,14 @@ import static org.mockito.Mockito.when;
 
 import java.time.Instant;
 import org.axonframework.modelling.command.AggregateEntityNotFoundException;
+import org.axonframework.modelling.command.Repository;
 import org.axonframework.test.aggregate.AggregateTestFixture;
 import org.axonframework.test.aggregate.FixtureConfiguration;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.magellan.ddd.domain.application.ApplicationId;
 import org.magellan.ddd.domain.application.commands.AcceptApplicationCommand;
+import org.magellan.ddd.domain.application.commands.AcceptApplicationCommandHandler;
 import org.magellan.ddd.domain.application.commands.SubmitApplicationCommand;
 import org.magellan.ddd.domain.application.events.ApplicationAcceptedEvent;
 import org.magellan.ddd.domain.application.events.ApplicationSubmittedEvent;
@@ -45,9 +47,10 @@ public class RouteAggregateTest {
   @BeforeEach
   void setUp() {
     fixture = new AggregateTestFixture<>(Route.class);
-    var routeRepository = mock(RouteRepository.class);
-    when(routeRepository.isDriverAvailable(DRIVER_ID.value())).thenReturn(true);
-    fixture.registerInjectableResource(routeRepository);
+    var viewRepository = mock(RouteRepository.class);
+    when(viewRepository.isDriverAvailable(DRIVER_ID.value())).thenReturn(true);
+    Repository<Route> aggregateRepository = fixture.getRepository();
+    fixture.registerAnnotatedCommandHandler(new AcceptApplicationCommandHandler(aggregateRepository, viewRepository));
   }
 
   @Test
