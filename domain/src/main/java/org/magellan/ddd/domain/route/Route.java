@@ -1,6 +1,7 @@
 package org.magellan.ddd.domain.route;
 
 import static java.util.function.Predicate.not;
+import static lombok.AccessLevel.PROTECTED;
 import static org.magellan.ddd.domain.route.RouteStatus.COMPLETED;
 import static org.magellan.ddd.domain.route.RouteStatus.NEW;
 import static org.magellan.ddd.domain.route.RouteStatus.STARTED;
@@ -19,7 +20,6 @@ import org.axonframework.modelling.command.AggregateMember;
 import org.axonframework.spring.stereotype.Aggregate;
 import org.magellan.ddd.domain.application.Application;
 import org.magellan.ddd.domain.application.ApplicationId;
-import org.magellan.ddd.domain.application.commands.AcceptApplicationCommand;
 import org.magellan.ddd.domain.application.commands.SubmitApplicationCommand;
 import org.magellan.ddd.domain.application.events.ApplicationAcceptedEvent;
 import org.magellan.ddd.domain.application.events.ApplicationSubmittedEvent;
@@ -35,7 +35,7 @@ import org.magellan.ddd.domain.vehicle.VehicleId;
 @Aggregate
 @Getter
 @EqualsAndHashCode(of = "id")
-@NoArgsConstructor
+@NoArgsConstructor(access = PROTECTED)
 public class Route {
 
   @AggregateIdentifier
@@ -55,7 +55,7 @@ public class Route {
   private Map<ApplicationId, Application> applications;
 
   @CommandHandler
-  public void handle(CreateRouteCommand command) {
+  public Route(CreateRouteCommand command) {
     AggregateLifecycle.apply(RouteCreatedEvent.of(command));
   }
 
@@ -92,17 +92,6 @@ public class Route {
         .status(event.status())
         .createdDate(event.createdDate())
         .build());
-  }
-
-
-  @CommandHandler
-  public void handle(AcceptApplicationCommand command) {
-    if (this.applications.containsKey(command.applicationId())) {
-      UserId driverId = applications.get(command.applicationId()).getDriverId();
-      AggregateLifecycle.apply(ApplicationAcceptedEvent.of(command, driverId));
-    } else {
-      throw new RuntimeException("Required application %s is missing".formatted(command.applicationId()));
-    }
   }
 
   @EventSourcingHandler
