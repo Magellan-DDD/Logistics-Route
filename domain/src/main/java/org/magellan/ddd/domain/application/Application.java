@@ -7,9 +7,7 @@ import lombok.Builder;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
-import org.axonframework.commandhandling.CommandHandler;
 import org.axonframework.eventsourcing.EventSourcingHandler;
-import org.axonframework.modelling.command.AggregateLifecycle;
 import org.axonframework.modelling.command.EntityId;
 import org.magellan.ddd.domain.application.commands.AcceptApplicationCommand;
 import org.magellan.ddd.domain.application.events.ApplicationAcceptedEvent;
@@ -33,12 +31,9 @@ public class Application {
     this.status = REJECTED;
   }
 
-  @CommandHandler
   public void handle(AcceptApplicationCommand command) {
     if (this.status == ApplicationStatus.ACCEPTED) {
-      log.warn("Application {} is already accepted", this.id);
-    } else {
-      AggregateLifecycle.apply(ApplicationAcceptedEvent.of(command, this.driverId));
+      log.warn("Application {} is already accepted for route {}", this.id, command.routeId());
     }
   }
 

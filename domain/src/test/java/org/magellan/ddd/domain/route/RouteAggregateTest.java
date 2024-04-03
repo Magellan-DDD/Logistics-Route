@@ -2,6 +2,8 @@ package org.magellan.ddd.domain.route;
 
 import static org.magellan.ddd.domain.application.ApplicationStatus.ACCEPTED;
 import static org.magellan.ddd.domain.application.ApplicationStatus.SUBMITTED;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 
 import java.time.Instant;
 import org.axonframework.modelling.command.AggregateEntityNotFoundException;
@@ -20,6 +22,7 @@ import org.magellan.ddd.domain.route.commands.StartRouteCommand;
 import org.magellan.ddd.domain.route.events.RouteCompletedEvent;
 import org.magellan.ddd.domain.route.events.RouteCreatedEvent;
 import org.magellan.ddd.domain.route.events.RouteStartedEvent;
+import org.magellan.ddd.domain.route.repositories.RouteRepository;
 import org.magellan.ddd.domain.user.UserId;
 import org.magellan.ddd.domain.vehicle.VehicleId;
 import org.magellan.ddd.domain.vehicle.VehicleTypeId;
@@ -42,6 +45,9 @@ public class RouteAggregateTest {
   @BeforeEach
   void setUp() {
     fixture = new AggregateTestFixture<>(Route.class);
+    var routeRepository = mock(RouteRepository.class);
+    when(routeRepository.isDriverAvailable(DRIVER_ID.value())).thenReturn(true);
+    fixture.registerInjectableResource(routeRepository);
   }
 
   @Test

@@ -20,6 +20,8 @@ import org.axonframework.modelling.command.AggregateMember;
 import org.axonframework.spring.stereotype.Aggregate;
 import org.magellan.ddd.domain.application.Application;
 import org.magellan.ddd.domain.application.ApplicationId;
+import org.magellan.ddd.domain.application.ApplicationStatus;
+import org.magellan.ddd.domain.application.commands.AcceptApplicationCommand;
 import org.magellan.ddd.domain.application.commands.SubmitApplicationCommand;
 import org.magellan.ddd.domain.application.events.ApplicationAcceptedEvent;
 import org.magellan.ddd.domain.application.events.ApplicationSubmittedEvent;
@@ -29,6 +31,7 @@ import org.magellan.ddd.domain.route.commands.StartRouteCommand;
 import org.magellan.ddd.domain.route.events.RouteCompletedEvent;
 import org.magellan.ddd.domain.route.events.RouteCreatedEvent;
 import org.magellan.ddd.domain.route.events.RouteStartedEvent;
+import org.magellan.ddd.domain.route.repositories.RouteRepository;
 import org.magellan.ddd.domain.user.UserId;
 import org.magellan.ddd.domain.vehicle.VehicleId;
 
@@ -54,8 +57,11 @@ public class Route {
   @AggregateMember
   private Map<ApplicationId, Application> applications;
 
+  private RouteRepository repository;
+
   @CommandHandler
-  public Route(CreateRouteCommand command) {
+  public Route(CreateRouteCommand command, RouteRepository repository) {
+    this.repository = repository;
     AggregateLifecycle.apply(RouteCreatedEvent.of(command));
   }
 
@@ -79,7 +85,7 @@ public class Route {
       throw new IllegalArgumentException("Application %s already submitted to the route %s"
           .formatted(command.applicationId(), this.id));
     }
-    // todo check whether the driver didn't start another route
+
     AggregateLifecycle.apply(ApplicationSubmittedEvent.of(command));
   }
 
@@ -92,6 +98,15 @@ public class Route {
         .status(event.status())
         .createdDate(event.createdDate())
         .build());
+  }
+
+  @CommandHandler
+  public void handle(AcceptApplicationCommand command) {
+    Application application = applications.get(command.applicationId());
+    UserId acceptedDriver = application.getDriverId();
+    verifyDriverAvailability(acceptedDriver);
+    application.handle(command);
+    AggregateLifecycle.apply(ApplicationAcceptedEvent.of(command, acceptedDriver));
   }
 
   @EventSourcingHandler
@@ -129,6 +144,12 @@ public class Route {
   public void on(RouteCompletedEvent event) {
     this.status = COMPLETED;
     this.actualArrivalDate = event.actualArrivalDate();
+  }
+
+  private void verifyDriverAvailability(UserId driverId) {
+    if (!repository.isDriverAvailable(driverId.value())) {
+      throw new RuntimeException("Driver %s has been already assigned to another route");
+    }
   }
 
 }

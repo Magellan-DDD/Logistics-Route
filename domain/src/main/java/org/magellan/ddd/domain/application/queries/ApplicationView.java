@@ -9,6 +9,7 @@ import lombok.ToString;
 @Setter
 @ToString
 public final class ApplicationView {
+
   private String id;
   private String routeId;
   private String driverId;
