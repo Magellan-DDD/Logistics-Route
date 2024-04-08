@@ -25,3 +25,9 @@ replay_pid*
 
 # IDEA
 .idea
+
+# Axon Framework
+/axon-server-se*
+
+# H2 Database
+/data*

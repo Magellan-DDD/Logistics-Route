@@ -1,6 +1,12 @@
+logging:
+  level:
+    web: debug
+    org:
+      hibernate:
+        SQL: error
 spring:
   application:
-    name: infrastructure
+    name: Logistics-routing
   datasource:
     url: jdbc:h2:file:./data/mapp
     driver-class-name: org.h2.Driver
@@ -9,7 +15,16 @@ spring:
   jpa:
     database-platform: org.hibernate.dialect.H2Dialect
     show-sql: true
+    hibernate:
+      ddl-auto: update
   h2:
     console:
       enabled: true
-
+  docker:
+    compose:
+      enabled: false
+axon:
+  serializer:
+    general: jackson
+  axonserver:
+    enabled: false
