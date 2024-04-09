@@ -8,7 +8,7 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
-public final class ApplicationView {
+public class ApplicationView {
 
   private String id;
   private String routeId;

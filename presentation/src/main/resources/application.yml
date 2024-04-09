@@ -22,9 +22,9 @@ spring:
       enabled: true
   docker:
     compose:
-      enabled: false
+      enabled: true
 axon:
   serializer:
     general: jackson
   axonserver:
-    enabled: false
+    enabled: true

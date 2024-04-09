@@ -2,13 +2,19 @@ package org.magellan.ddd.presenation.rest;
 
 import static org.springframework.http.HttpStatus.CREATED;
 
+import java.util.concurrent.CompletableFuture;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.axonframework.commandhandling.gateway.CommandGateway;
+import org.axonframework.messaging.responsetypes.ResponseTypes;
+import org.axonframework.queryhandling.QueryGateway;
 import org.magellan.ddd.domain.application.commands.AcceptApplicationCommand;
 import org.magellan.ddd.domain.application.commands.SubmitApplicationCommand;
-import org.magellan.ddd.presenation.rest.mapper.ApplicationCommandMapper;
+import org.magellan.ddd.domain.application.queries.ApplicationView;
+import org.magellan.ddd.domain.application.queries.GetApplicationDetailsQuery;
+import org.magellan.ddd.presenation.rest.mapper.ApplicationMapper;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -26,23 +32,32 @@ import jakarta.validation.constraints.NotNull;
 public class ApplicationController {
 
   private final CommandGateway commandGateway;
-  private final ApplicationCommandMapper commandMapper;
+  private final QueryGateway queryGateway;
+  private final ApplicationMapper applicationMapper;
 
   @PostMapping
-  public ResponseEntity<Void> submitApplication(@Valid @RequestBody SubmitApplicationRequest request) {
+  public CompletableFuture<ResponseEntity<Void>> submitApplication(@Valid @RequestBody SubmitApplicationRequest request) {
     log.debug("Submit application: {}", request);
-    SubmitApplicationCommand command = commandMapper.toCommand(request);
-    commandGateway.sendAndWait(command);
-    return ResponseEntity.status(CREATED).build();
+    SubmitApplicationCommand command = applicationMapper.toCommand(request);
+    return commandGateway.send(command)
+        .thenApply(r -> ResponseEntity.status(CREATED).build());
   }
 
   @PatchMapping("/{applicationId}/acceptance")
-  public ResponseEntity<Void> submitRoute(@PathVariable("applicationId") String applicationId,
-                                          @Valid @RequestBody AcceptApplicationRequest request) {
+  public CompletableFuture<Void> submitRoute(@PathVariable("applicationId") String applicationId,
+                                             @Valid @RequestBody AcceptApplicationRequest request) {
     log.debug("Accept application: {}", request);
-    AcceptApplicationCommand command = commandMapper.toCommand(request, applicationId);
-    commandGateway.sendAndWait(command);
-    return ResponseEntity.accepted().build();
+    AcceptApplicationCommand command = applicationMapper.toCommand(request, applicationId);
+    return commandGateway.send(command);
+  }
+
+  @GetMapping("/{applicationId}")
+  public CompletableFuture<GetApplicationDetailsResponse> getApplication(
+      @PathVariable("applicationId") String applicationId) {
+
+    var query = new GetApplicationDetailsQuery(applicationId);
+    return queryGateway.query(query, ResponseTypes.instanceOf(ApplicationView.class))
+        .thenApply(applicationMapper::toResponse);
   }
 
   public record SubmitApplicationRequest(
@@ -59,6 +74,15 @@ public class ApplicationController {
       String routeId,
       @NotNull
       String vehicleId) {
+  }
+
+  public record GetApplicationDetailsResponse(
+      String id,
+      String routeId,
+      String driverId,
+      Integer requiredVehicleTypeId,
+      String status,
+      long createdDate) {
   }
 
 }
