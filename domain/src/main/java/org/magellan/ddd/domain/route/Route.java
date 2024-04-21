@@ -27,6 +27,7 @@ import org.magellan.ddd.domain.application.commands.AcceptApplicationCommand;
 import org.magellan.ddd.domain.application.commands.SubmitApplicationCommand;
 import org.magellan.ddd.domain.application.events.ApplicationAcceptedEvent;
 import org.magellan.ddd.domain.application.events.ApplicationSubmittedEvent;
+import org.magellan.ddd.domain.dispatcher.DispatcherId;
 import org.magellan.ddd.domain.driver.Driver;
 import org.magellan.ddd.domain.route.commands.CompleteRouteCommand;
 import org.magellan.ddd.domain.route.commands.CreateRouteCommand;
@@ -34,7 +35,6 @@ import org.magellan.ddd.domain.route.commands.StartRouteCommand;
 import org.magellan.ddd.domain.route.events.RouteCompletedEvent;
 import org.magellan.ddd.domain.route.events.RouteCreatedEvent;
 import org.magellan.ddd.domain.route.events.RouteStartedEvent;
-import org.magellan.ddd.domain.dispatcher.DispatcherId;
 import org.magellan.ddd.domain.vehicle.VehicleId;
 
 @Slf4j
@@ -108,6 +108,12 @@ public class Route {
 
     if (application.isAccepted()) {
       log.warn("Application {} is already accepted for route {}", this.id, command.routeId());
+    }
+
+    if (application.isRejected()) {
+      throw new IllegalStateException(
+          "Unable to accept application %s for the route: %s. This applications is already rejected"
+              .formatted(application.getId(), this.id));
     }
 
     // todo use saga for checking driver status

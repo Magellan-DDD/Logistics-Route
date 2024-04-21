@@ -1,5 +1,6 @@
 package org.magellan.ddd.domain.application;
 
+import static org.magellan.ddd.domain.application.ApplicationStatus.ACCEPTED;
 import static org.magellan.ddd.domain.application.ApplicationStatus.REJECTED;
 
 import java.time.Instant;
@@ -31,7 +32,11 @@ public class Application {
   }
 
   public boolean isAccepted() {
-    return this.status == ApplicationStatus.ACCEPTED;
+    return this.status == ACCEPTED;
+  }
+
+  public boolean isRejected() {
+    return this.status == REJECTED;
   }
 
   @EventSourcingHandler
