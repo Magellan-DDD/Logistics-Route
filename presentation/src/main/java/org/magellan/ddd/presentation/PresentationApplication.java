@@ -1,4 +1,4 @@
-package org.magellan.ddd.presenation;
+package org.magellan.ddd.presentation;
 
 import org.magellan.ddd.domain.DomainApplication;
 import org.magellan.ddd.infrastructure.InfrastructureApplication;

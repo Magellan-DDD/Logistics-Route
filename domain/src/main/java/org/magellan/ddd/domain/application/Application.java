@@ -9,9 +9,8 @@ import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
 import org.axonframework.eventsourcing.EventSourcingHandler;
 import org.axonframework.modelling.command.EntityId;
-import org.magellan.ddd.domain.application.commands.AcceptApplicationCommand;
 import org.magellan.ddd.domain.application.events.ApplicationAcceptedEvent;
-import org.magellan.ddd.domain.user.UserId;
+import org.magellan.ddd.domain.driver.Driver;
 import org.magellan.ddd.domain.vehicle.VehicleTypeId;
 
 @Slf4j
@@ -22,7 +21,7 @@ public class Application {
 
   @EntityId(routingKey = "applicationId")
   private ApplicationId id;
-  private UserId driverId;
+  private Driver driver;
   private VehicleTypeId requiredVehicleTypeId;
   private ApplicationStatus status;
   private Instant createdDate;
@@ -31,10 +30,8 @@ public class Application {
     this.status = REJECTED;
   }
 
-  public void handle(AcceptApplicationCommand command) {
-    if (this.status == ApplicationStatus.ACCEPTED) {
-      log.warn("Application {} is already accepted for route {}", this.id, command.routeId());
-    }
+  public boolean isAccepted() {
+    return this.status == ApplicationStatus.ACCEPTED;
   }
 
   @EventSourcingHandler

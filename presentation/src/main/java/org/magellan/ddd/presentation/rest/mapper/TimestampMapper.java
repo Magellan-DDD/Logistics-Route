@@ -1,4 +1,4 @@
-package org.magellan.ddd.presenation.rest.mapper;
+package org.magellan.ddd.presentation.rest.mapper;
 
 import static org.mapstruct.MappingConstants.ComponentModel.SPRING;
 

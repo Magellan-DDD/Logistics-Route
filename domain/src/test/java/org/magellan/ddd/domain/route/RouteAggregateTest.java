@@ -7,17 +7,17 @@ import static org.mockito.Mockito.when;
 
 import java.time.Instant;
 import org.axonframework.modelling.command.AggregateEntityNotFoundException;
-import org.axonframework.modelling.command.Repository;
 import org.axonframework.test.aggregate.AggregateTestFixture;
 import org.axonframework.test.aggregate.FixtureConfiguration;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.magellan.ddd.domain.application.ApplicationId;
 import org.magellan.ddd.domain.application.commands.AcceptApplicationCommand;
-import org.magellan.ddd.domain.application.commands.AcceptApplicationCommandHandler;
 import org.magellan.ddd.domain.application.commands.SubmitApplicationCommand;
 import org.magellan.ddd.domain.application.events.ApplicationAcceptedEvent;
 import org.magellan.ddd.domain.application.events.ApplicationSubmittedEvent;
+import org.magellan.ddd.domain.dispatcher.DispatcherId;
+import org.magellan.ddd.domain.driver.DriverId;
 import org.magellan.ddd.domain.route.commands.CompleteRouteCommand;
 import org.magellan.ddd.domain.route.commands.CreateRouteCommand;
 import org.magellan.ddd.domain.route.commands.StartRouteCommand;
@@ -25,15 +25,14 @@ import org.magellan.ddd.domain.route.events.RouteCompletedEvent;
 import org.magellan.ddd.domain.route.events.RouteCreatedEvent;
 import org.magellan.ddd.domain.route.events.RouteStartedEvent;
 import org.magellan.ddd.domain.route.repositories.RouteRepository;
-import org.magellan.ddd.domain.user.UserId;
 import org.magellan.ddd.domain.vehicle.VehicleId;
 import org.magellan.ddd.domain.vehicle.VehicleTypeId;
 
 public class RouteAggregateTest {
 
   private static final RouteId ROUTE_ID = new RouteId("around-the-world-route");
-  private static final UserId DISPATCHER_ID = new UserId("mrs-claus");
-  private static final UserId DRIVER_ID = new UserId("santa-claus");
+  private static final DispatcherId DISPATCHER_ID = new DispatcherId("mrs-claus");
+  private static final DriverId DRIVER_ID = new DriverId("santa-claus");
   private static final VehicleTypeId VEHICLE_TYPE_ID = new VehicleTypeId(777);
   private static final VehicleId VEHICLE_ID = new VehicleId("santa-sleigh");
   private static final ApplicationId APPLICATION_ID = new ApplicationId("santa-claus-application");
@@ -49,8 +48,6 @@ public class RouteAggregateTest {
     fixture = new AggregateTestFixture<>(Route.class);
     var viewRepository = mock(RouteRepository.class);
     when(viewRepository.isDriverAvailable(DRIVER_ID.value())).thenReturn(true);
-    Repository<Route> aggregateRepository = fixture.getRepository();
-    fixture.registerAnnotatedCommandHandler(new AcceptApplicationCommandHandler(aggregateRepository, viewRepository));
   }
 
   @Test

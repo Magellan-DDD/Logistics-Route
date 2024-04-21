@@ -1,4 +1,4 @@
-package org.magellan.ddd.presenation.rest;
+package org.magellan.ddd.presentation.rest;
 
 import static org.springframework.http.HttpStatus.CREATED;
 
@@ -20,7 +20,7 @@ import org.magellan.ddd.domain.route.queries.GetRouteDetailsQuery;
 import org.magellan.ddd.domain.route.queries.RouteBaseView;
 import org.magellan.ddd.domain.route.queries.RouteBaseView.AddressView;
 import org.magellan.ddd.domain.route.queries.RouteView;
-import org.magellan.ddd.presenation.rest.mapper.RouteMapper;
+import org.magellan.ddd.presentation.rest.mapper.RouteMapper;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -43,23 +43,22 @@ public class RouteController {
   private final RouteMapper routeMapper;
 
   @PostMapping
-  public CompletableFuture<ResponseEntity<Void>> createRoute(@Valid @RequestBody CreateRouteRequest request) {
+  public CompletableFuture<ResponseEntity<RouteId>> createRoute(@Valid @RequestBody CreateRouteRequest request) {
     log.debug("Create route: {}", request);
     CreateRouteCommand command = routeMapper.toCommand(request);
-    return commandGateway.send(command)
-        .thenApply(r -> ResponseEntity.status(CREATED).build());
+    return commandGateway.<RouteId>send(command)
+        .thenApply(ResponseEntity.status(CREATED)::body);
   }
 
   @PostMapping("/{routeId}/start")
-  public CompletableFuture<Void> submitRoute(@PathVariable("routeId") String routeId) {
-
+  public CompletableFuture<RouteId> startRoute(@PathVariable("routeId") String routeId) {
     log.debug("Start route: {}", routeId);
     var command = new StartRouteCommand(new RouteId(routeId));
     return commandGateway.send(command);
   }
 
   @PostMapping("/{routeId}/complete")
-  public CompletableFuture<Void> completeRoute(@PathVariable("routeId") String routeId) {
+  public CompletableFuture<RouteId> completeRoute(@PathVariable("routeId") String routeId) {
     log.debug("Complete route: {}", routeId);
     var command = new CompleteRouteCommand(new RouteId(routeId));
     return commandGateway.send(command);

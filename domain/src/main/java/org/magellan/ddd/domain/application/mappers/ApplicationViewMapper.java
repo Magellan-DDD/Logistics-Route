@@ -12,6 +12,7 @@ import org.mapstruct.Mapping;
 public interface ApplicationViewMapper extends IdMapper {
 
   @Mapping(target = "id", source = "applicationId")
+  @Mapping(target = "requiredVehicleType.id", source = "requiredVehicleTypeId")
   ApplicationView toView(ApplicationSubmittedEvent event);
 
 }

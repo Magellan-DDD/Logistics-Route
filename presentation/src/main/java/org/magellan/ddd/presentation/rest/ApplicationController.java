@@ -1,4 +1,4 @@
-package org.magellan.ddd.presenation.rest;
+package org.magellan.ddd.presentation.rest;
 
 import static org.springframework.http.HttpStatus.CREATED;
 
@@ -12,7 +12,8 @@ import org.magellan.ddd.domain.application.commands.AcceptApplicationCommand;
 import org.magellan.ddd.domain.application.commands.SubmitApplicationCommand;
 import org.magellan.ddd.domain.application.queries.ApplicationView;
 import org.magellan.ddd.domain.application.queries.GetApplicationDetailsQuery;
-import org.magellan.ddd.presenation.rest.mapper.ApplicationMapper;
+import org.magellan.ddd.domain.vehicle.queries.VehicleTypeView;
+import org.magellan.ddd.presentation.rest.mapper.ApplicationMapper;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
@@ -44,8 +45,8 @@ public class ApplicationController {
   }
 
   @PatchMapping("/{applicationId}/acceptance")
-  public CompletableFuture<Void> submitRoute(@PathVariable("applicationId") String applicationId,
-                                             @Valid @RequestBody AcceptApplicationRequest request) {
+  public CompletableFuture<Object> submitRoute(@PathVariable("applicationId") String applicationId,
+                                                @Valid @RequestBody AcceptApplicationRequest request) {
     log.debug("Accept application: {}", request);
     AcceptApplicationCommand command = applicationMapper.toCommand(request, applicationId);
     return commandGateway.send(command);
@@ -80,7 +81,7 @@ public class ApplicationController {
       String id,
       String routeId,
       String driverId,
-      Integer requiredVehicleTypeId,
+      VehicleTypeView requiredVehicleType,
       String status,
       long createdDate) {
   }

@@ -3,8 +3,8 @@ package org.magellan.ddd.domain.application.events;
 import org.magellan.ddd.domain.application.ApplicationId;
 import org.magellan.ddd.domain.application.ApplicationStatus;
 import org.magellan.ddd.domain.application.commands.AcceptApplicationCommand;
+import org.magellan.ddd.domain.driver.DriverId;
 import org.magellan.ddd.domain.route.RouteId;
-import org.magellan.ddd.domain.user.UserId;
 import org.magellan.ddd.domain.vehicle.VehicleId;
 
 public record ApplicationAcceptedEvent(
@@ -12,9 +12,9 @@ public record ApplicationAcceptedEvent(
     ApplicationId applicationId,
     VehicleId vehicleId,
     ApplicationStatus status,
-    UserId driverId) {
+    DriverId driverId) {
 
-  public static ApplicationAcceptedEvent of(AcceptApplicationCommand command, UserId driverId) {
+  public static ApplicationAcceptedEvent of(AcceptApplicationCommand command, DriverId driverId) {
     return new ApplicationAcceptedEvent(
         command.routeId(),
         command.applicationId(),

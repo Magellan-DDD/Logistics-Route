@@ -1,5 +1,6 @@
 package org.magellan.ddd.domain.route.queries;
 
+import static org.magellan.ddd.domain.route.RouteStatus.ASSIGNED;
 import static org.magellan.ddd.domain.route.RouteStatus.COMPLETED;
 import static org.magellan.ddd.domain.route.RouteStatus.STARTED;
 
@@ -36,6 +37,7 @@ public class RouteEventHandler {
     RouteView routeView = currentRoute(event.routeId());
     routeView.setDriverId(event.driverId().value());
     routeView.setVehicleId(event.vehicleId().value());
+    routeView.setStatus(ASSIGNED.name());
     routeRepository.save(routeView);
   }
 

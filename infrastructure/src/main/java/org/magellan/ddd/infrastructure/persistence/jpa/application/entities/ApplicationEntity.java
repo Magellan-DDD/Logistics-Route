@@ -25,7 +25,7 @@ public class ApplicationEntity {
   private String driverId;
 
   @Column(name = "VEHICLE_TYPE_ID")
-  private String vehicleTypeId;
+  private Integer vehicleTypeId;
 
   @Column(name = "STARTED_DATE")
   private Instant startedDate;

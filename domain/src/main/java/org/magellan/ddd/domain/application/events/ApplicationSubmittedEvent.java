@@ -4,14 +4,14 @@ import java.time.Instant;
 import org.magellan.ddd.domain.application.ApplicationId;
 import org.magellan.ddd.domain.application.ApplicationStatus;
 import org.magellan.ddd.domain.application.commands.SubmitApplicationCommand;
+import org.magellan.ddd.domain.driver.DriverId;
 import org.magellan.ddd.domain.route.RouteId;
-import org.magellan.ddd.domain.user.UserId;
 import org.magellan.ddd.domain.vehicle.VehicleTypeId;
 
 public record ApplicationSubmittedEvent(
     RouteId routeId,
     ApplicationId applicationId,
-    UserId driverId,
+    DriverId driverId,
     VehicleTypeId requiredVehicleTypeId,
     ApplicationStatus status,
     Instant createdDate) {
